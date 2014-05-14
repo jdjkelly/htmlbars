@@ -17,13 +17,17 @@ var transpiledAMD = transpileES6(lib, { moduleName: true });
 
 var namedAMD = concatFiles(transpiledAMD, {
   inputFiles: ['**/*.js'],
-  outputFile: '/htmlbars.amd.js' // TODO: use package.json for versioning
+  outputFile: '/htmlbars.amd.js'
 });
+
+// Add package version to filename
 
 var fullNameDist = moveFile(namedAMD, {
   srcFile: 'htmlbars.amd.js',
   destFile: 'htmlbars-' + pkg.version + '.amd.js'
 });
+
+// Uglify
 
 var uglifiedDist = uglify(moveFile(namedAMD, {
   srcFile: 'htmlbars.amd.js',

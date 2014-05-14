@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         dest: 'dist'
       },
       browser: {
-        config: 'tasks/build/tests-browser.js',
+        config: 'tasks/build/browser.js',
         dest: 'test'
       }
     },
@@ -109,16 +109,6 @@ module.exports = function(grunt) {
 //     //   tasks: ['tests', 'jshint']
 //     // },
 
-//     transpile: {
-//       amd: {
-//         type: "amd",
-//         files: [{
-//           expand: true,
-//           cwd: 'lib/',
-//           src: ['**/*.js'],
-//           dest: 'tmp/'
-//         }]
-//       },
 
 //       tests: {
 //         type: 'amd',
@@ -131,60 +121,6 @@ module.exports = function(grunt) {
 //       }
 //     },
 
-//     // concat_sourcemap: {
-//     //   amd: {
-//     //     files: [{
-//     //       src: ['tmp/htmlbars.js', 'tmp/htmlbars/**/*.js', 'tmp/vendor/*.js'],
-//     //       dest: 'tmp/htmlbars.amd.js'
-//     //     }]
-//     //   },
-//     //   tests: {
-//     //     files: [{
-//     //       src: ['tmp/tests/*.js'],
-//     //       dest: 'tmp/tests.amd.js'
-//     //     }]
-//     //   },
-//     //   library: {
-//     //     src: ['tmp/<%= pkg.name %>.amd.js'],
-//     //     dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.amd.js'
-//     //   },
-//     //   browser: {
-//     //     src: [
-//     //       'wrap/browser.start',
-//     //       'vendor/loader.js',
-//     //       'vendor/handlebars.amd.js',
-//     //       'vendor/simple-html-tokenizer.amd.js',
-//     //       'tmp/<%= pkg.name %>.amd.js',
-//     //       'wrap/browser.end'
-//     //     ],
-//     //     dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
-//     //   }
-//     // },
-
-//     // fix_sourcemap: {
-//     //   amd: {
-//     //     files: {
-//     //       src: 'tmp/htmlbars.amd.js.map'
-//     //     }
-//     //   },
-//     //   tests: {
-//     //     files: {
-//     //       src: 'tmp/tests.amd.js.map'
-//     //     }
-//     //   },
-//     //   library: {
-//     //     root: 'sources-<%= pkg.version %>',
-//     //     files: {
-//     //       src: 'dist/<%= pkg.name %>-<%= pkg.version %>.amd.js.map'
-//     //     }
-//     //   },
-//     //   browser: {
-//     //     root: 'sources-<%= pkg.version %>',
-//     //     files: {
-//     //       src: 'dist/<%= pkg.name %>-<%= pkg.version %>.js.map'
-//     //     }
-//     //   }
-//     // },
 
 //     copy: {
 //       sources: {

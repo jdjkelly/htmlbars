@@ -7,7 +7,7 @@ var lib = 'lib';
 
 var tests = pickFiles('test', {
   srcDir: '/tests',
-  destDir: '/htmlbars/testests'
+  destDir: '/htmlbars/tests'
 });
 
 var src = mergeTrees([lib, tests]);
@@ -21,9 +21,15 @@ var concatted = concatFiles(transpiled, {
 
 var vendor = pickFiles('vendor', {
   srcDir: '/',
-  files: [ '**/*.*' ],
+  destDir: '/vendor'
+});
+
+var qunit = pickFiles('test', {
+  srcDir: '/',
+  files: ['qunit.js', 'qunit.css'],
   destDir: '/'
 });
+
 
 var qunitIndex = pickFiles('test', {
   srcDir: '/',
@@ -31,4 +37,4 @@ var qunitIndex = pickFiles('test', {
   destDir: '/'
 });
 
-module.exports = mergeTrees([vendor, qunitIndex]);
+module.exports = mergeTrees([concatted, vendor, qunitIndex, qunit]);

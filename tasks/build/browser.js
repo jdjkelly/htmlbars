@@ -2,6 +2,7 @@ var pickFiles = require('broccoli-static-compiler');
 var concatFiles = require('broccoli-concat');
 var mergeTrees = require('broccoli-merge-trees');
 var transpileES6 = require('broccoli-es6-module-transpiler');
+var jsHint = require('broccoli-jshint');
 
 var lib = 'lib';
 
@@ -11,6 +12,12 @@ var tests = pickFiles('test', {
 });
 
 var src = mergeTrees([lib, tests]);
+
+var jsHinted = jsHint(src, {
+  destFile: 'wtf.js',
+  disableTestGenerator: true
+});
+
 var transpiled = transpileES6(src, { moduleName: true });
 var concatted = concatFiles(transpiled, {
   inputFiles: ['**/*.js'],
@@ -37,4 +44,4 @@ var qunitIndex = pickFiles('test', {
   destDir: '/'
 });
 
-module.exports = mergeTrees([concatted, vendor, qunitIndex, qunit]);
+module.exports = mergeTrees([jsHinted, concatted, vendor, qunitIndex, qunit]);
